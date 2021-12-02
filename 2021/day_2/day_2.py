@@ -10,7 +10,7 @@ def part1(commands):
             depth -= dist
         else:
             depth += dist
-    print("Part 1 solution: {}".format(horz_dist  * depth))
+    print(f"Part 1 solution: {(horz_dist * depth)}")
 
 
 def part2(commands):
@@ -26,7 +26,7 @@ def part2(commands):
             aim -= dist
         else:
             aim += dist
-    print("Part 2 solution: {}".format(horz_dist * depth))
+    print(f"Part 2 solution: {(horz_dist * depth)}")
 
 
 if __name__ == '__main__':
