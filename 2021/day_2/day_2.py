@@ -1,29 +1,32 @@
 def part1(commands):
-    sol = [0, 0]
+    horz_dist = 0
+    depth = 0
     for command in commands:
         cmd, dist = command.split(' ')
+        dist = int(dist)
         if cmd == 'forward':
-            sol[0] += int(dist)
+            horz_dist += dist
         elif cmd == 'up':
-            sol[1] -= int(dist)
+            depth -= dist
         else:
-            sol[1] += int(dist)
-    print("Part 1 solution: {}".format(sol[0] * sol[1]))
+            depth += dist
+    print("Part 1 solution: {}".format(horz_dist  * depth))
 
 
 def part2(commands):
-    sol = [0, 0]
+    horz_dist, depth = 0, 0
     aim = 0
     for command in commands:
         cmd, dist = command.split(' ')
+        dist = int(dist)
         if cmd == 'forward':
-            sol[0] += int(dist)
-            sol[1] += aim * int(dist)
+            horz_dist += dist
+            depth += aim * dist
         elif cmd == 'up':
-            aim -= int(dist)
+            aim -= dist
         else:
-            aim += int(dist)
-    print("Part 2 solution: {}".format(sol[0] * sol[1]))
+            aim += dist
+    print("Part 2 solution: {}".format(horz_dist * depth))
 
 
 if __name__ == '__main__':
