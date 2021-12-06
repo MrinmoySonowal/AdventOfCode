@@ -28,8 +28,11 @@ class day_6:
     def part_2(self):
         ages = Counter(self.inital_state)
         for i in range(256):
+            # -1 represents the newborns, it acts a temp variable
             ages = {n: ages[n + 1] for n in range(-1, 8)}
+            # newborns assigned to timer 8
             ages[8] = ages[-1]
+            # Since -1 holds the 0 values of the previous day, it gets added to the list of fishes with timer 6
             ages[6] += ages[-1]
             ages[-1] = 0
         return sum(ages.values())
