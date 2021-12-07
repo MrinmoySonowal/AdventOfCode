@@ -21,6 +21,11 @@ class day_7:
     def part_1(self):
         return self.get_total_fuel_1()
 
+    """
+    :param x: Location being considered as common point
+    Function returns the total fuel required to travel  to x from all other points
+    LRU cache is used to memoize the function as input may contain several repeated locations
+    """
     @lru_cache
     def get_total_fuel_2(self, x):
         s = 0
