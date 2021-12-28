@@ -23,7 +23,7 @@ class day_7:
 
     """
     :param x: Location being considered as common point
-    Function returns the total fuel required to travel  to x from all other points
+    Function returns the total fuel required to travel  to x from all other points_syntax
     LRU cache is used to memoize the function as input may contain several repeated locations
     """
     @lru_cache
