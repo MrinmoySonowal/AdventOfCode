@@ -1,8 +1,8 @@
 import numpy as np
-from utils.runtime import runtime_decorator
+from utils.runtime import calculate_runtime
 
 
-@runtime_decorator
+@calculate_runtime
 def gen_list(filename):
     """
     Generates the list of numbers from the given file
@@ -16,7 +16,7 @@ class Day1:
         self.solution_1 = self.solve_part_1(self.input_list)
         self.solution_2 = self.solve_part_2(self.input_list)
 
-    @runtime_decorator
+    @calculate_runtime
     def solve_part_1(self, input_list):
         input_list[:, 0].sort()
         input_list[:, 1].sort()
@@ -32,14 +32,14 @@ class Day1:
         count_freq = vectorized_get(elements)
         return np.sum(elements * count_freq)
 
-    @runtime_decorator
+    @calculate_runtime
     def solve_part_2(self, input_list):
         column2 = input_list[:, 1].astype(int)
         count_freq_dict = self._count_frequency(column2)
         return self._score_similarity(column2, count_freq_dict)
 
 
-@runtime_decorator
+@calculate_runtime
 def run():
     ld = Day1('input.txt')
     print("Solution 1:", ld.solution_1)
