@@ -6,7 +6,7 @@ class Day2:
         self.solution2 = self.solve_2(filename)
 
     def _check_report_is_safe(self, report):
-        diff = list(map(lambda x: x[0] - x[1], zip(report[0:], report[1:])))
+        diff = list(map(lambda x: x[1] - x[0], zip(report[0:], report[1:])))
         if diff[0] > 0:
             is_report_safe = self._check_diff(diff, lambda x: 1 <= x <= 3)
         else:
