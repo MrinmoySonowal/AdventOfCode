@@ -43,8 +43,8 @@ class Day2:
                     sum_safe += 1
                 else:
                     for unsafe_index in range(len(report)):
-                        new_numbers = report[0:unsafe_index] + report[unsafe_index + 1:]
-                        if self._check_report_is_safe(new_numbers):
+                        new_report = report[0:unsafe_index] + report[unsafe_index + 1:]
+                        if self._check_report_is_safe(new_report):
                             sum_safe += 1
                             break
         return sum_safe
