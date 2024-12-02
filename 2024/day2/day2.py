@@ -14,12 +14,10 @@ class Day2:
         return is_report_safe
 
     def _check_diff(self, diff, condition):
-        is_report_safe = True
         for i in diff:
             if not condition(i):
-                is_report_safe = False
-                break
-        return is_report_safe
+                return False
+        return True
 
     @calculate_runtime
     def solve_1(self, filename):
