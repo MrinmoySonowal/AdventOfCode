@@ -1,7 +1,4 @@
-import numpy as np
-
 from utils.runtime import calculate_runtime
-
 
 class Day2:
     def __init__(self, filename):
