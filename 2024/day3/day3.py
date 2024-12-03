@@ -1,5 +1,5 @@
 import re
-from typing import List
+from typing import List, Tuple
 
 
 def read_file(filename: str) -> List[str]:
@@ -15,7 +15,11 @@ class Day3:
         self.do_muls = self.find_muls_and_dos(self.instruction_string)
         self.solution2 = self.solve2(self.do_muls)
 
-    def find_mul_strs(self, instruction_string: List[str]) -> List[str]:
+    def find_mul_strs(self, instruction_string: List[str]) -> List[Tuple[str]]:
+        """
+        :param instruction_string: List of strings that are gotten from the input file
+        :return: Something like [('2', '2'), ('5', '5')...]
+        """
         mul_strs = []
         pattern = r"mul\((\d+),(\d+)\)"
         for text in instruction_string:
@@ -23,7 +27,7 @@ class Day3:
             mul_strs.extend(matches)
         return mul_strs
 
-    def solve1(self, muls: List[str]) -> int:
+    def solve1(self, muls: List[Tuple[str]]) -> int:
         return sum(map(lambda x: int(x[0])*int(x[1]), muls))
 
     def find_muls_and_dos(self, instruction_string: List[str]) -> List[str]:
@@ -62,6 +66,6 @@ class Day3:
 
 
 if __name__ == '__main__':
-    d3 = Day3('input.txt')
+    d3 = Day3('test-input-2.txt')
     print(d3.solution1)
     print(d3.solution2)
