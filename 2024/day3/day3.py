@@ -40,7 +40,7 @@ class Day3:
             mul_strs.extend(matches)
         return mul_strs
 
-    def solve2(self, do_muls):
+    def solve2(self, do_muls: List[str]) -> int:
         do_operate = True
         solution_sum = 0
         for text in do_muls:
@@ -54,7 +54,7 @@ class Day3:
                 solution_sum += self.get_product(text)
         return solution_sum
 
-    def get_product(self, text):
+    def get_product(self, text: str) -> int:
         pattern = r"mul\((\d+),(\d+)\)"
         matches = re.findall(pattern, text)
         for nums in matches:
