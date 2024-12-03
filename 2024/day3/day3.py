@@ -1,5 +1,4 @@
 import re
-import typing
 from typing import List
 
 
