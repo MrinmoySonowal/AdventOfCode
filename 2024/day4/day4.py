@@ -49,7 +49,6 @@ class Day4:
             if word == LOOK_UP_WORD:
                 print(i, j, word, "RIGHT")
                 occurrence_count += 1
-        # DIAG DOWN RIGHT
 
         for r in [-1, 1]:
             for c in [-1, 1]:
