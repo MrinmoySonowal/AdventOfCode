@@ -1,5 +1,6 @@
 from graphlib import TopologicalSorter
-from typing import Dict, Set, Tuple
+from typing import Dict, Set, Tuple, List
+
 
 class Day5:
     def __init__(self, rules_filename: str, updates_filename: str):
@@ -18,12 +19,12 @@ class Day5:
                     rules_map[int(num_before)] = {int(num_after)}
         return rules_map
 
-    def get_updates(self, updates_filename: str):
+    def get_updates(self, updates_filename: str) -> List[List[int]]:
         with open(updates_filename) as f:
             return list(map(lambda line: list(map(int, line[:-1].split(","))), f.readlines()))
 
     def solve(self) -> Tuple[int, int]:
-        # Get the valid updates by summing the middle value of valid updates
+        # Get the valid updates by summing the middle value of valid updates for pt1 and invalid (after sorting) for pt2
         middle_sum_1 = 0
         middle_sum_2 = 0
         for update in self.updates:
