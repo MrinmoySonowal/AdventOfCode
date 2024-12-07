@@ -40,5 +40,3 @@ class Day7:
 
 if __name__ == '__main__':
     d7 = Day7('input.txt')
-
-
