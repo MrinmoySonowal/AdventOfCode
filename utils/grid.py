@@ -11,17 +11,17 @@ class Grid:
         self.bounds = Coord(len(raw), len(raw[0]))
         self.raw = raw
 
-    def inbounds(self, p: Coord):
-        return 0 <= p.x < self.bounds.x and 0 <= p.y < self.bounds.y
+    def inbounds(self, point: Coord):
+        return 0 <= point.x < self.bounds.x and 0 <= point.y < self.bounds.y
 
-    def at(self, p: Coord):
-        if self.inbounds(p):
-            return self.raw[p.x][p.y]
+    def at(self, point: Coord):
+        if self.inbounds(point):
+            return self.raw[point.x][point.y]
         else: return None
 
-    def set(self, p: Coord, c: Any):
-        if self.inbounds(p):
-            self.raw[p.x][p.y] = c
+    def set(self, point: Coord, value: Any):
+        if self.inbounds(point):
+            self.raw[point.x][point.y] = value
             return True
         else: return False
 
