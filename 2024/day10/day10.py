@@ -1,4 +1,5 @@
 from utils.grid import Grid, Coord
+from utils.runtime import calculate_runtime
 
 
 class Day10:
@@ -7,6 +8,7 @@ class Day10:
         self.solve1()
         self.solve2()
 
+    @calculate_runtime
     def solve1(self):
         score = 0
         for coord in self.grid.points():
@@ -31,6 +33,7 @@ class Day10:
         right_path_score = self.count_score(Coord(coord.x + 1, coord.y), level + 1, visited_set)
         return up_path_score + down_path_score + left_path_score + right_path_score
 
+    @calculate_runtime
     def solve2(self):
         score = 0
         for coord in self.grid.points():
