@@ -2,7 +2,7 @@ from collections import defaultdict
 
 from typing import Dict
 
-from utils.math_utils import count_digits
+from utils.math_utils import count_digits, is_even
 
 from DailyAOCSolver import DailyAOCSolver
 from utils.runtime import calculate_runtime
@@ -25,7 +25,7 @@ class Day11(DailyAOCSolver):
         for i in range(len(stones)):
             if stones[i] == '0':
                 new_stones.append(1)
-            elif len(stones[i]) % 2 == 0:
+            elif is_even(len(stones[i])):
                 new_stones.extend([int(stones[i][:len(stones[i])//2]), int(stones[i][len(stones[i])//2:])])
             else:
                 new_stones.append(int(stones[i])*2024)
@@ -43,7 +43,7 @@ class Day11(DailyAOCSolver):
         for stone, count in stones.items():
             if stone == 0:
                 new_stones[1] += count
-            elif (num_digits:=count_digits(stone)) % 2 == 0:
+            elif is_even(num_digits:=count_digits(stone)):
                 divisor = (10 ** (num_digits / 2))
                 lh, rh = stone // divisor, stone % divisor
                 new_stones[int(lh)] += count
